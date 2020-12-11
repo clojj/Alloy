@@ -17,6 +17,7 @@ import dev.necauqua.plugins.alloy.Icons
 import java.io.BufferedReader
 import java.io.InputStreamReader
 import java.io.OutputStream
+import java.util.ArrayList
 import javax.swing.Icon
 import javax.swing.JComponent
 import javax.swing.JPanel
@@ -58,7 +59,7 @@ class DemoRunConfiguration(project: Project, factory: ConfigurationFactory, name
     // @Throws(ExecutionException::class)
     override fun getState(executor: Executor, executionEnvironment: ExecutionEnvironment): RunProfileState? {
         return RunProfileState { _, _ ->
-            val view = BuildTextConsoleView(project)
+            val view = BuildTextConsoleView(project, true, ArrayList())
 
             val ping = ProcessBuilder()
                     .command("ping", "8.8.8.8")

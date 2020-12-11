@@ -4,14 +4,14 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 buildscript {
     repositories { mavenCentral() }
-    dependencies { classpath(kotlin("gradle-plugin", "1.3.61")) }
+    dependencies { classpath(kotlin("gradle-plugin", "1.4.20")) }
 }
 
 plugins {
     idea
-    kotlin("jvm") version "1.3.61"
-    id("org.jetbrains.intellij") version "0.4.13"
-    id("org.jetbrains.grammarkit") version "2020.1"
+    kotlin("jvm") version "1.4.21"
+    id("org.jetbrains.intellij") version "0.6.5"
+    id("org.jetbrains.grammarkit") version "2020.3.2"
 }
 
 
@@ -21,7 +21,7 @@ repositories {
 }
 
 dependencies {
-    implementation(files("alloy.jar", "alloy-src.zip"))
+    implementation(files("org.alloytools.alloy.dist.jar", "org.alloytools.alloy-5.1.0.zip"))
 }
 
 group = "dev.necauqua.plugins"
@@ -47,7 +47,7 @@ sourceSets {
 intellij {
     updateSinceUntilBuild = false
     instrumentCode = true
-    version = "2019.3"
+    version = "2020.3"
 }
 
 val generateLexer = task<GenerateLexer>("generateLexer") {
